@@ -8,8 +8,8 @@
 
 :root {
   --font-family: "Roboto", sans-serif;
-  --primary: #2980b9;
-  --secondary: #3498db;
+  --primary: #4834d4;
+  --secondary: #686de0;
   --accent: #d35400;
   --lightgray: #ddd;
   --text-regular: #444;
@@ -31,4 +31,68 @@ a {
 body {
   font-family: var(--font-family);
   color: var(--text-regular);
+}
+
+// Util CSS Rules as Bootstrap mode
+
+.flex-display {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-justify-content-center {
+  justify-content: center;
+}
+
+.flex-justify-content-between {
+  justify-content: space-between;
+}
+
+.flex-align-items-center {
+  align-items: center;
+}
+
+.flex-align-items-between {
+  align-items: space-between;
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.p-15 {
+  padding: 15px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.m-10 {
+  margin: 10px;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+// For debugging
+
+.d1 {
+  border: 1px solid red;
+}
+
+.d2 {
+  border: 1px solid green;
 }
