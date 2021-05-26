@@ -1,0 +1,11 @@
+<div class="container flex-display flex-row">
+  <app-cocktail-list
+    class="flex-50 pr-20"
+    [cocktails]="cocktails"
+    (cocktailDetailer)="sentCocktail($event)"
+  ></app-cocktail-list>
+  <app-cocktail-details
+    class="flex-50 pl-20"
+    [cocktailDetails]="selectedCocktail"
+  ></app-cocktail-details>
+</div>

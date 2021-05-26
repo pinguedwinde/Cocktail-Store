@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Cocktail } from '@cocktail-store/interfaces/cocktail.interface';
 
 @Component({
-  selector: 'app-cocktail-list',
-  templateUrl: './cocktail-list.component.html',
-  styleUrls: ['./cocktail-list.component.scss'],
+  selector: 'app-cocktail-container',
+  templateUrl: './cocktail-container.component.html',
+  styleUrls: ['./cocktail-container.component.scss'],
 })
-export class CocktailListComponent implements OnInit {
-  cocktails: Cocktail[] = [
+export class CocktailContainerComponent implements OnInit {
+  public selectedCocktail!: Cocktail;
+  public cocktails: Cocktail[] = [
     {
       name: 'Mojito',
       img: 'https://www.hangoverweekends.co.uk/media/15505/mojito.jpg?width=500&height=375',
@@ -30,5 +31,11 @@ export class CocktailListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectedCocktail = this.cocktails[0];
+  }
+
+  public sentCocktail(selectedCocktail: Cocktail) {
+    this.selectedCocktail = selectedCocktail;
+  }
 }
