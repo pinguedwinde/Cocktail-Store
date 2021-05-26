@@ -124,6 +124,10 @@ body {
   flex: 1 1 auto;
 }
 
+.flex-50 {
+  flex: 1 1 50%;
+}
+
 // Util CSS Rules as Bootstrap mode
 
 .p-10 {
@@ -148,6 +152,14 @@ body {
 
 .mb-20 {
   margin-bottom: 20px;
+}
+
+.pr-20 {
+  padding-right: 20px;
+}
+
+.pl-20 {
+  padding-left: 20px;
 }
 
 // For debugging
