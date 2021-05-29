@@ -1,6 +1,10 @@
 <h3 class="mb-20">List of our Cocktails</h3>
 <ul class="mb-20 list-primary">
-  <li *ngFor="let cocktail of cocktails" (click)="selectCocktail(cocktail)">
+  <li
+    [appSelected]="cocktail.name === selectedCocktail.name"
+    *ngFor="let cocktail of cocktails; let index = index"
+    (click)="selectCocktail(index)"
+  >
     {{ cocktail.name }}
   </li>
 </ul>

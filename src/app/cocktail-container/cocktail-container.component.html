@@ -2,7 +2,8 @@
   <app-cocktail-list
     class="flex-50 pr-20"
     [cocktails]="cocktails"
-    (cocktailDetailer)="sentCocktail($event)"
+    [selectedCocktail]="selectedCocktail"
+    (cocktailDetailer)="selectCocktail($event)"
   ></app-cocktail-list>
   <app-cocktail-details
     class="flex-50 pl-20"

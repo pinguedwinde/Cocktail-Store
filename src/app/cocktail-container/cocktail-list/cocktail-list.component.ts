@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Cocktail } from '@cocktail-store/interfaces/cocktail.interface';
+import { Cocktail } from '@cocktail-store/shared/interfaces/cocktail.interface';
 
 @Component({
   selector: 'app-cocktail-list',
@@ -8,13 +8,13 @@ import { Cocktail } from '@cocktail-store/interfaces/cocktail.interface';
 })
 export class CocktailListComponent implements OnInit {
   @Input() public cocktails!: Cocktail[];
-  @Output() private cocktailDetailer: EventEmitter<Cocktail> =
-    new EventEmitter();
+  @Input() public selectedCocktail!: Cocktail;
+  @Output() private cocktailDetailer: EventEmitter<number> = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}
 
-  public selectCocktail(cocktail: Cocktail): void {
-    this.cocktailDetailer.emit(cocktail);
+  public selectCocktail(index: number): void {
+    this.cocktailDetailer.emit(index);
   }
 }
