@@ -9,7 +9,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./cocktail-container.component.scss'],
 })
 export class CocktailContainerComponent implements OnInit, OnDestroy {
-  public selectedCocktail!: Cocktail;
   public cocktails: Cocktail[] = [];
   private subscription: Subscription = new Subscription();
 
@@ -21,18 +20,8 @@ export class CocktailContainerComponent implements OnInit, OnDestroy {
         (cocktails: Cocktail[]) => (this.cocktails = cocktails)
       )
     );
-    this.subscription.add(
-      this.cocktailService.selectedCokctail$.subscribe(
-        (selectedCocktail: Cocktail) =>
-          (this.selectedCocktail = selectedCocktail)
-      )
-    );
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  public selectCocktail(index: number) {
-    this.cocktailService.selectCocktail(index);
   }
 }
