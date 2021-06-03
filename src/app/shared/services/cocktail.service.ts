@@ -99,11 +99,88 @@ export class CocktailService {
         },
       ],
     },
+    {
+      name: 'Mint Julep',
+      img: 'https://www.hangoverweekends.co.uk/media/15504/bulleitmintjulep_l.jpg?width=300&height=300',
+      description:
+        'The concoction of Bourbon, a little bit of water, powdered and granulated sugar and plenty of mint has long been a very popular way to drink a cocktail. Simple yet refined.',
+      ingredients: [
+        {
+          name: 'Cup water',
+          quantity: 0.5,
+        },
+        {
+          name: 'Cup white sugar',
+          quantity: 0.5,
+        },
+        {
+          name: 'Tablespoons roughly sliced fresh mint leaves',
+          quantity: 2,
+        },
+        {
+          name: 'cup Kentucky bourbon',
+          quantity: 1,
+        },
+        {
+          name: 'Sprigs fresh mint leaves for garnish',
+          quantity: 2,
+        },
+      ],
+    },
+    {
+      name: 'Caipirinha',
+      img: 'https://www.hangoverweekends.co.uk/media/15503/caipirinha-cocktail.jpg?width=400&height=300',
+      description:
+        'Originally based on a remedy to cure Spanish flu, the national drink of Brazil is made with cachaca (spirit from a sugar cane) or white rum/vodka, brown sugar and lime juice.',
+      ingredients: [
+        {
+          name: 'Cachaca (Rum)',
+          quantity: 2,
+        },
+        {
+          name: 'Tablespoon sugar',
+          quantity: 1,
+        },
+        {
+          name: 'Lime juice',
+          quantity: 1,
+        },
+      ],
+    },
+    // {
+    //   name: 'Mint Julep',
+    //   img: '',
+    //   description: '',
+    //   ingredients: [
+    //     {
+    //       name: '',
+    //       quantity: 1,
+    //     },
+    //   ],
+    // },
   ]);
 
   constructor() {}
 
-  getCocktail(index: number): Cocktail {
+  public getCocktail(index: number): Cocktail {
     return this.cocktails$.value[index];
+  }
+
+  public addCocktail(cocktail: Cocktail): void {
+    const currentValue = this.cocktails$.value;
+    this.cocktails$.next([...currentValue, cocktail]);
+  }
+
+  public editCocktail(editedCocktail: Cocktail): void {
+    let currentValue = this.cocktails$.value;
+    this.cocktails$.next(
+      currentValue.map((cocktail: Cocktail) => {
+        if (editedCocktail.name === cocktail.name) {
+          return editedCocktail;
+        } else {
+          return cocktail;
+        }
+      })
+    );
   }
 }
