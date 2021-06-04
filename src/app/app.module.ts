@@ -16,7 +16,11 @@ import { IngredientListComponent } from './cart-container/ingredient-list/ingred
 // routes
 import { APP_ROUTES } from './app.routes';
 import { CocktailFormComponent } from './cocktail-container/cocktail-form/cocktail-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+// pipes
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -29,11 +33,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     CartContainerComponent,
     IngredientListComponent,
     CocktailFormComponent,
+    FilterPipe,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

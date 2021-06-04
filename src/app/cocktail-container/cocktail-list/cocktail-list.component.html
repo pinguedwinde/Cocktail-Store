@@ -1,7 +1,16 @@
 <h3 class="mb-20">List of our Cocktails</h3>
+<div class="mb-20 flex-display flex-row flex-justify-content-between">
+  <input
+    class="flex-fill"
+    [(ngModel)]="search"
+    type="text"
+    placeholder="Search a cocktail"
+  />
+  <span class="search-glass">🔍</span>
+</div>
 <ul class="mb-20 list-primary list-primary-action">
   <li
-    *ngFor="let cocktail of cocktails; let index = index"
+    *ngFor="let cocktail of cocktails | filter: search; let index = index"
     [routerLink]="index + ''"
     routerLinkActive="active"
   >

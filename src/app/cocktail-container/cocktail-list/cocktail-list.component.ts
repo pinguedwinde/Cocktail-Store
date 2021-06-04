@@ -8,7 +8,8 @@ import { Cocktail } from '@cocktail-store/shared/interfaces/cocktail.interface';
   styleUrls: ['./cocktail-list.component.scss'],
 })
 export class CocktailListComponent implements OnInit {
-  @Input() public cocktails!: Cocktail[];
+  @Input() public cocktails!: Cocktail[] | null;
+  public search = '';
   constructor() {}
 
   ngOnInit(): void {}
