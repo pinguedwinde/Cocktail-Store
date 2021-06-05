@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Cocktail } from '@cocktail-store/shared/interfaces/cocktail.interface';
 import { CartService } from '@cocktail-store/shared/services/cart.service';
 import { CocktailService } from '@cocktail-store/shared/services/cocktail.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cocktail-details',
@@ -11,6 +12,7 @@ import { CocktailService } from '@cocktail-store/shared/services/cocktail.servic
 })
 export class CocktailDetailsComponent implements OnInit {
   public cocktail!: Cocktail;
+  public subscription: Subscription = new Subscription();
 
   constructor(
     private cartService: CartService,
@@ -20,7 +22,10 @@ export class CocktailDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.cocktailService
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+      }
+      this.subscription = this.cocktailService
         .getCocktail(+(paramMap.get('index') || ''))
         .subscribe((cocktail: Cocktail) => {
           this.cocktail = cocktail;
